@@ -55,6 +55,10 @@ public class Cruise extends FlightOptionalPackage
 	 */
 	private double totalPrice;
 	/**
+	 * Double containing the subtotal of excursion costs.
+	 */
+	private double excursionSubTotal;
+	/**
 	 * The type of the cabin on the cruise.
 	 */
 	private CabinType cabin;
@@ -187,10 +191,11 @@ public class Cruise extends FlightOptionalPackage
 	{
 		if (excursion != null && !excursion.equals(""))
 		{
+			this.excursionNum++;
 			this.excursions[this.excursionNum] = excursion;
 			if (price >= 0)
 			{
-				this.totalPrice += price;
+				this.excursionSubTotal += price;
 			}
 		}
 	}
@@ -267,7 +272,7 @@ public class Cruise extends FlightOptionalPackage
 	 */
 	public double getExcursionCosts()
 	{
-		return this.totalPrice;
+		return this.excursionSubTotal;
 	}
 	
 	/**
@@ -276,7 +281,7 @@ public class Cruise extends FlightOptionalPackage
 	 */
 	public int getNumExcursions()
 	{
-		return this.excursions.length + 1;
+		return this.excursionNum;
 	}
 	
 	/**
