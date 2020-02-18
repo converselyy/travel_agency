@@ -98,7 +98,7 @@ public abstract class FlightOptionalPackage extends VacationPackage
 	public double getFlightCosts()
 	{
 		double temp = 0.0;
-		for (int i = 0; i < this.flights.length; i++)
+		for (int i = 0; i < this.numFlights; i++)
 		{
 			temp += this.flights[i].getPrice();
 		}

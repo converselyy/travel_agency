@@ -115,7 +115,7 @@ public class AllInclusiveResort extends FlightOptionalPackage
 	 */
 	public double getPrice()
 	{
-		return this.price; // I don't know if this is right lol
+		return this.price + this.getLodgingCost();
 	}
 	
 	/**
@@ -126,6 +126,6 @@ public class AllInclusiveResort extends FlightOptionalPackage
 	 */
 	public double getDepositAmount()
 	{
-		return this.getFlightCosts() + ; // I KNOW I didn't do this one right...
+		return this.getFlightCosts() + this.getLodgingCost() * this.halfConstant;
 	}
 }
