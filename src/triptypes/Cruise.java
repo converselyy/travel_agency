@@ -2,10 +2,11 @@
 // TERM: Spring 2020
 //
 // NAME: Brandon Cline
-// RESOURCES: No external resources were referenced or used.
+// RESOURCES: Checked the Calendar and DateFormat docs for formatting a Calendar date.
 
 package triptypes;
 import java.util.Calendar;
+import java.text.DateFormat;
 
 /**
  * This class represents a cruise package within the travel agency.
@@ -17,6 +18,10 @@ import java.util.Calendar;
  */
 public class Cruise extends FlightOptionalPackage
 {
+	/**
+	 * An arbitrary number of excursions to be allowed.
+	 */
+	private final int maxExcursions = 50;
 	/**
 	 * A percentage constant used for calculating 50% of
 	 * the base price for the deposit amount.
@@ -40,7 +45,7 @@ public class Cruise extends FlightOptionalPackage
 	/**
 	 * A string array representing excursions on this cruise.
 	 */
-	private String[] excursions;
+	private String[] excursions = new String[this.maxExcursions];
 	/**
 	 * The number of excursions in the cruise.
 	 */
@@ -61,6 +66,14 @@ public class Cruise extends FlightOptionalPackage
 	 * The name of the ship the cruise is on.
 	 */
 	private String ship = new String();
+	/**
+	 * DateFormat for the departure Calendar object.
+	 */
+	//private DateFormat departFormat = new DateFormat();
+	/**
+	 * DateFormat for the arrival Calendar object.
+	 */
+	//private DateFormat arriveFormat = new DateFormat();
 	/**
 	 * The date at which the cruise departs.
 	 */
