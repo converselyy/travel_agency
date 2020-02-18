@@ -18,6 +18,10 @@ package triptypes;
 public class AllInclusiveResort extends FlightOptionalPackage
 {
 	/**
+	 * Percentage constant for calculating half a cost.
+	 */
+	private final double halfConstant = 0.5;
+	/**
 	 * The name of the resort.
 	 */
 	private String resort = new String();
@@ -122,6 +126,6 @@ public class AllInclusiveResort extends FlightOptionalPackage
 	 */
 	public double getDepositAmount()
 	{
-		return 123; // I KNOW I didn't do this one right...
+		return this.getFlightCosts() + ; // I KNOW I didn't do this one right...
 	}
 }
