@@ -92,7 +92,7 @@ public class RoadTrip extends VacationPackage
 	 */
 	public double getDepositAmount()
 	{
-		return ;
+		return 0.0;
 	}
 
 	/**
@@ -147,7 +147,7 @@ public class RoadTrip extends VacationPackage
 	 */
 	public double getCarCost()
 	{
-		
+		return 0.0;
 	}
 	
 	/**
@@ -227,7 +227,7 @@ public class RoadTrip extends VacationPackage
 	 */
 	public double getEstimatedFuelCost()
 	{
-		
+		return 0.0;
 	}
 	
 	/**
@@ -263,6 +263,6 @@ public class RoadTrip extends VacationPackage
 	 */
 	public String toString()
 	{
-		
+		return String.format("");
 	}
 }

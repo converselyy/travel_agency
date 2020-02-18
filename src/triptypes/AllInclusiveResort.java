@@ -60,6 +60,18 @@ public class AllInclusiveResort extends FlightOptionalPackage
 	}
 	
 	/**
+	 * Retrieves the subtotal for lodging associated with this
+	 * all inclusive resort stay based on the number of nights
+	 * in the package and the base price.
+	 * 
+	 * @return The lodging subtotal in USD.
+	 */
+	public double getLodgingCost()
+	{
+		return 0.0;
+	}
+	
+	/**
 	 * Retrieves a single String containing all of the available amenities at the
 	 * resort. Individual amenities should be separated by a single comma and space
 	 * character, with no such separator at the end of the string.
