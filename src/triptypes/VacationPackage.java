@@ -22,10 +22,6 @@ public abstract class VacationPackage
 	 * The number of days included in this VacationPackage trip.
 	 */
 	private int days;
-	/**
-	 * Double representing the full price of the vacation package.
-	 */
-	private double price;
 	
 	/**
 	 * Initialises a VacationPackage with provided values.
@@ -125,7 +121,7 @@ public abstract class VacationPackage
 	 */
 	public double getAmountDue()
 	{
-		return 0.0;
+		return this.getPrice() - this.getDepositAmount();
 	}
 	
 	/**
