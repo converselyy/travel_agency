@@ -73,11 +73,11 @@ public class Cruise extends FlightOptionalPackage
 	/**
 	 * DateFormat for the departure Calendar object.
 	 */
-	//private DateFormat departFormat = new DateFormat();
+	private DateFormat departFormat = new DateFormat();
 	/**
 	 * DateFormat for the arrival Calendar object.
 	 */
-	//private DateFormat arriveFormat = new DateFormat();
+	private DateFormat arriveFormat = new DateFormat();
 	/**
 	 * The date at which the cruise departs.
 	 */
