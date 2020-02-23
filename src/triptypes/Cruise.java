@@ -73,11 +73,7 @@ public class Cruise extends FlightOptionalPackage
 	/**
 	 * DateFormat for the departure Calendar object.
 	 */
-	private SimpleDateFormat departFormat = new SimpleDateFormat("HH:mm MM-dd-YYYY");
-	/**
-	 * DateFormat for the arrival Calendar object.
-	 */
-	private SimpleDateFormat arriveFormat = new SimpleDateFormat("HH:mm MM-dd-YYYY");
+	private SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm MM-dd-YYYY");
 	/**
 	 * The date at which the cruise departs.
 	 */
@@ -129,12 +125,6 @@ public class Cruise extends FlightOptionalPackage
 	public double getDepositAmount()
 	{
 		return this.getFlightCosts() + this.totalPrice * this.half;
-	}
-
-	@Override
-	public double getAmountDue() {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 
 	/**
