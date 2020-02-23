@@ -6,6 +6,7 @@
 
 package triptypes;
 import java.util.Calendar;
+import java.text.SimpleDateFormat;
 
 /**
  * This class represents a single flight within the travel agency system.
@@ -31,13 +32,17 @@ public class Flight
 	 */
 	private String receivingAirport = new String();
 	/**
+	 * Date format for departure and arrival times.
+	 */
+	private SimpleDateFormat flightFormat = new SimpleDateFormat("HH:mm MM-dd-YYYY");
+	/**
 	 * Calendar time representing the departure time/date.
 	 */
-	private Calendar departureTime;
+	private Calendar departureTime = Calendar.getInstance();
 	/**
 	 * Calendar time representing the arrival time/date.
 	 */
-	private Calendar arrivalTime;
+	private Calendar arrivalTime = Calendar.getInstance();
 	/**
 	 * Double representing the price of the flight in USD.
 	 */
@@ -96,6 +101,7 @@ public class Flight
 	{
 		// check and make sure there's a toString() method for Calendar objects
 		return String.format("%s %d Departs: %s at %s; Arrives %s at %s", this.airline, this.flightNum,
-				this.departureAirport, this.departureTime.toString(), this.receivingAirport, this.arrivalTime.toString());
+				this.departureAirport, this.flightFormat.format(this.departureTime.getTime()),
+				this.receivingAirport, this.flightFormat.format(this.arrivalTime.getTime()));
 	}
 }

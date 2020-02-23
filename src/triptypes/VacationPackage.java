@@ -96,6 +96,7 @@ public abstract class VacationPackage
 		return this.days;
 	}
 	
+	// 3 total abstract methods.
 	/**
 	 * This method provides the full price of a vacation package, which
 	 * is must be computed based on the specific kind of trip beingbooked.
@@ -110,18 +111,22 @@ public abstract class VacationPackage
 	 */
 	public abstract double getDepositAmount();
 	/**
-	 * This method provides the remaining amount due to the travel agent
-	 * for this trip less any deposit made upfront.
-	 * @return The remaining balance to pay the travel agency in USD.
-	 */
-	public abstract double getAmountDue();
-	/**
 	 * This method provides the subtotal for a trip related to lodging
 	 * expenses (ie, not including flights, meals, and incidentals).
 	 * Lodging rates are determined by specific package types.
 	 * @return The lodging subtotal in USD.
 	 */
 	public abstract double getLodgingCost();
+	
+	/**
+	 * This method provides the remaining amount due to the travel agent
+	 * for this trip less any deposit made upfront.
+	 * @return The remaining balance to pay the travel agency in USD.
+	 */
+	public double getAmountDue()
+	{
+		return 0.0;
+	}
 	
 	/**
 	 * This method produces a String summary of a VacationPackage. Strings

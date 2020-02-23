@@ -128,4 +128,23 @@ public class AllInclusiveResort extends FlightOptionalPackage
 	{
 		return this.getFlightCosts() + this.getLodgingCost() * this.halfConstant;
 	}
+	
+	/**
+	 * A formatted summary string with details about this all-inclusive resort
+	 * package. The string will contain information as described by FlightOptionalPackage
+	 * followed by details about the resort and the number of people included at the
+	 * specified price. The second line should be prefixed with 11 blank
+	 * spaces for alignment below the trip name. For example:
+	 * 
+	 * $  450.35  Punta Cana Fiesta! (Flight Included)
+	 *            An all-inclusive stay at Flip Flops for 2 people!
+	 *            
+	 * @return The formatted string summary.
+	 */
+	public String toString()
+	{
+		return String.format("$%.2f	%s! (Flight Included)\n"
+				+ "           An all-inclusive stay at %s for %d people!", this.getPrice(), super.getName(),
+				this.resort, this.guests);
+	}
 }

@@ -6,7 +6,7 @@
 
 package triptypes;
 import java.util.Calendar;
-import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 /**
  * This class represents a cruise package within the travel agency.
@@ -73,19 +73,19 @@ public class Cruise extends FlightOptionalPackage
 	/**
 	 * DateFormat for the departure Calendar object.
 	 */
-	private DateFormat departFormat = new DateFormat();
+	private SimpleDateFormat departFormat = new SimpleDateFormat("HH:mm MM-dd-YYYY");
 	/**
 	 * DateFormat for the arrival Calendar object.
 	 */
-	private DateFormat arriveFormat = new DateFormat();
+	private SimpleDateFormat arriveFormat = new SimpleDateFormat("HH:mm MM-dd-YYYY");
 	/**
 	 * The date at which the cruise departs.
 	 */
-	private Calendar departure;
+	private Calendar departure = Calendar.getInstance();
 	/**
 	 * The date at which the cruise returns.
 	 */
-	private Calendar arrival;
+	private Calendar arrival = Calendar.getInstance();
 	/**
 	 * Double to hold the base price of the cruise.
 	 */
