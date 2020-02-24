@@ -1,9 +1,10 @@
-package triptypes;
 // COURSE: CSCI1620
 // TERM: Spring 2020
 //
 // NAME: Brandon Cline
 // RESOURCES: No external resources were referenced or used.
+
+package triptypes;
 
 /**
  * This enum presents the four cabin types on standard cruise ships.
@@ -32,6 +33,4 @@ public enum CabinType
 	 * separate bedroom.
 	 */
 	SUITE
-	
-	// there's supposed to be methods here? not sure how those work
 }

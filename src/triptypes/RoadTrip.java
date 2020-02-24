@@ -294,8 +294,7 @@ public class RoadTrip extends VacationPackage
 	 */
 	public String toString()
 	{
-		return String.format("$%.2f	%s at %s\n"
-				+ "           A road trip with stops at %s", this.getPrice(), super.getName(),
-				this.getStops());
+		return String.format("$%.2f	%s at %s\n", super.getName())
+				+ String.format("           A road trip with stops at %s", this.getStops());
 	}
 }

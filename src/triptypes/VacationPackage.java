@@ -137,7 +137,7 @@ public abstract class VacationPackage
 	 */
 	public String toString()
 	{
-		return String.format("");
+		return String.format("$	%d  %s", this.getPrice(), this.getName());
 	}
 	
 	/**
