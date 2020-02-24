@@ -72,7 +72,7 @@ public class AllInclusiveResort extends FlightOptionalPackage
 	 */
 	public double getLodgingCost()
 	{
-		return 0.0;
+		return this.price * super.getNumDays();
 	}
 	
 	/**
@@ -115,7 +115,7 @@ public class AllInclusiveResort extends FlightOptionalPackage
 	 */
 	public double getPrice()
 	{
-		return this.price + this.getLodgingCost();
+		return this.getFlightCosts() + this.getLodgingCost();
 	}
 	
 	/**
