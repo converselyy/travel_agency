@@ -1,9 +1,14 @@
-package travelgui;
 // COURSE: CSCI1620
 // TERM: Spring 2020
 //
 // NAME: Brandon Cline
-// RESOURCES: We'll see.
+// RESOURCES: No external resources were referenced or used.
+
+package travelgui;
+import triptypes.AllInclusiveResort;
+import triptypes.Cruise;
+import triptypes.RoadTrip;
+import triptypes.VacationPackage;
 
 /**
  * This class serves as a collection to store, filter, and explore VacationPackages
@@ -21,7 +26,7 @@ public class VacationPackageCollection
 	/**
 	 * Number of trips in the package.
 	 */
-	private int numTrips = 0;
+	private int numTrips;
 	/**
 	 * Array of VacationPackage objects for the collection.
 	 */
@@ -32,7 +37,7 @@ public class VacationPackageCollection
 	 */
 	public VacationPackageCollection()
 	{
-		
+		this.numTrips = 0;
 	}
 	
 	/**
@@ -81,17 +86,44 @@ public class VacationPackageCollection
 	 * 
 	 * @param selection An integer signaling what type of packages to extract. 1 represents RoadTrips,
 	 * 2 represents Cruises, and 3 represents All-Inclusive Resort packages.
+	 * 
 	 * @return The filtered subcollection of packages, or an empty collection if no matching
 	 * packages exist in this collection.
 	 */
 	public VacationPackageCollection filterVacationsFor(int selection)
 	{
+		VacationPackageCollection temp = new VacationPackageCollection(); 
 		switch (selection)
 		{
-		case 1: break;
-		case 2: break;
-		case 3: break;
-		default: return null;
+		case 1:
+			for (int i = 0; i < this.collection.length; i++)
+			{
+				if (this.collection[i] instanceof RoadTrip)
+				{
+					temp.addVacation(this.collection[i]);
+				}
+			}
+			return temp;
+		case 2:
+			for (int i = 0; i < this.collection.length; i++)
+			{
+				if (this.collection[i] instanceof Cruise)
+				{
+					temp.addVacation(this.collection[i]);
+				}
+			}
+			return temp;
+		case 3:
+			for (int i = 0; i < this.collection.length; i++)
+			{
+				if (this.collection[i] instanceof AllInclusiveResort)
+				{
+					temp.addVacation(this.collection[i]);
+				}
+			}
+			return temp;
+		default:
+			return temp;
 		}
 	}
 }
