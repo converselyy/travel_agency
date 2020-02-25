@@ -98,12 +98,12 @@ public abstract class VacationPackage
 	
 	/**
 	 * This method provides the full price of a vacation package, which
-	 * is must be computed based on the specific kind of trip beingbooked.
+	 * is must be computed based on the specific kind of trip being booked.
 	 * @return The price of a vacation package in USD.
 	 */
 	public abstract double getPrice();
 	/**
-	 * This method provides the required upfront deposit amount for a
+	 * This method provides the required up front deposit amount for a
 	 * given vacation. This must be computed based on rules determined
 	 * by specific package types, per travel agency policies.
 	 * @return The deposit amount required in USD.
@@ -111,10 +111,13 @@ public abstract class VacationPackage
 	public abstract double getDepositAmount();
 	/**
 	 * This method provides the remaining amount due to the travel agent
-	 * for this trip less any deposit made upfront.
+	 * for this trip less any deposit made up front.
 	 * @return The remaining balance to pay the travel agency in USD.
 	 */
-	public abstract double getAmountDue();
+	public double getAmountDue()
+	{
+		return this.getPrice() - this.getDepositAmount();
+	}
 	/**
 	 * This method provides the subtotal for a trip related to lodging
 	 * expenses (ie, not including flights, meals, and incidentals).

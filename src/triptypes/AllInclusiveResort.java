@@ -72,7 +72,7 @@ public class AllInclusiveResort extends FlightOptionalPackage
 	 */
 	public double getLodgingCost()
 	{
-		return 0.0;
+		return this.price * this.getNumDays();
 	}
 	
 	/**
@@ -87,7 +87,7 @@ public class AllInclusiveResort extends FlightOptionalPackage
 		String temp = "";
 		for (int i = 0; i < this.amenities.length; i++)
 		{
-			if (i == this.amenities.length)
+			if (i == this.amenities.length - 1)
 			{
 				temp += this.amenities[i];
 			}
@@ -115,7 +115,7 @@ public class AllInclusiveResort extends FlightOptionalPackage
 	 */
 	public double getPrice()
 	{
-		return this.price + this.getLodgingCost();
+		return this.getLodgingCost() + this.getFlightCosts();
 	}
 	
 	/**
