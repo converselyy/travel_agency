@@ -58,10 +58,12 @@ public class RoadTrip extends VacationPackage
 	 * @param numDays The number of days required for this RoadTrip.
 	 * @param stops A list of destinations that will be visited along the way on this RoadTrip.
 	 * @param fuelCost The estimated cost of fuel in US Dollars per Gallon based on current rates.
-	 * @param miles The total number of miles for this RoadTrip, assuming people follow the intended route.
+	 * @param miles The total number of miles for this RoadTrip, assuming people
+	 * follow the intended route.
 	 * @param maxPersons The number of people for whom this trip package will be budgeted.
 	 * @param hotelStars The quality level of the hotels used during the RoadTrip, ranging from
-	 * 1..5 stars, inclusive. Star values outside this range will be adjusted to the closest valid value.
+	 * 1..5 stars, inclusive. Star values outside this range will be adjusted to the
+	 * closest valid value.
 	 */
 	public RoadTrip(String name, int numDays, String[] stopsIn, double fuelCostIn,
 			int milesIn, int maxPersons, int hotelStars)
@@ -137,7 +139,7 @@ public class RoadTrip extends VacationPackage
 	public double getCarCost()
 	{
 		double temp = 0.0;
-		if (this.numPeople >= 9)
+		if (this.numPeople >= 9) // are these all magic numbers? I hope not
 		{
 			temp = 150.0;
 		}
