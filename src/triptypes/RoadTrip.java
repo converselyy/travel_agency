@@ -29,7 +29,7 @@ public class RoadTrip extends VacationPackage
 	/**
 	 * The total miles to be travelled.
 	 */
-	private int totalMiles;
+	private int miles;
 	/**
 	 * The number of stars.
 	 */
@@ -64,12 +64,12 @@ public class RoadTrip extends VacationPackage
 	 * 1..5 stars, inclusive. Star values outside this range will be adjusted to the closest valid value.
 	 */
 	public RoadTrip(String name, int numDays, String[] stopsIn, double fuelCostIn,
-			int miles, int maxPersons, int hotelStars)
+			int milesIn, int maxPersons, int hotelStars)
 	{
 		super(name, numDays);
 		this.stops = stopsIn;
 		this.fuelCost = fuelCostIn;
-		this.totalMiles = miles;
+		this.miles = milesIn;
 		this.maxPeople = maxPersons;
 		this.stars = hotelStars;
 	}
@@ -92,18 +92,7 @@ public class RoadTrip extends VacationPackage
 	 */
 	public double getDepositAmount()
 	{
-		return 0.0;
-	}
-
-	/**
-	 * All RoadTrips must be fully paid in advance, with the exception of fuel costs.
-	 * Fuel costs are paid to the gas station, and not the travel agent. Thus, the
-	 * balance due on RoadTrips is always 0.
-	 * @return The remaining balance to pay the travel agency.
-	 */
-	public double getAmountDue()
-	{
-		return 0.0;
+		return this.getLodgingCost() + this.getCarCost();
 	}
 
 	/**
@@ -147,7 +136,28 @@ public class RoadTrip extends VacationPackage
 	 */
 	public double getCarCost()
 	{
-		return 0.0;
+		double temp = 0.0;
+		if (this.numPeople >= 9)
+		{
+			temp = 150.0;
+		}
+		else if (this.numPeople >= 7)
+		{
+			temp = 70.5;
+		}
+		else if (this.numPeople >= 5)
+		{
+			temp = 60.25;
+		}
+		else if (this.numPeople >= 3)
+		{
+			temp = 50.13;
+		}
+		else
+		{
+			temp = 36.75;
+		}
+		return temp;
 	}
 	
 	/**
@@ -227,7 +237,28 @@ public class RoadTrip extends VacationPackage
 	 */
 	public double getEstimatedFuelCost()
 	{
-		return 0.0;
+		double temp = 0.0;
+		if (this.numPeople >= 9)
+		{
+			temp = 15.0;
+		}
+		else if (this.numPeople >= 7)
+		{
+			temp = 22.0;
+		}
+		else if (this.numPeople >= 5)
+		{
+			temp = 28.0;
+		}
+		else if (this.numPeople >= 3)
+		{
+			temp = 32.0;
+		}
+		else
+		{
+			temp = 45.0;
+		}
+		return temp * (double)this.miles;
 	}
 	
 	/**
@@ -263,6 +294,7 @@ public class RoadTrip extends VacationPackage
 	 */
 	public String toString()
 	{
-		return String.format("");
+		return String.format("$%.2f	%s at %s\n", super.getName())
+				+ String.format("           A road trip with stops at %s", this.getStops());
 	}
 }

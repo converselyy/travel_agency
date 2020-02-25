@@ -65,6 +65,7 @@ public abstract class FlightOptionalPackage extends VacationPackage
 	/**
 	 * A predicate method for identifying whether a concrete object has
 	 * at least one flight attached to it.
+	 * 
 	 * @return True when at least one flight has been added, false otherwise.
 	 */
 	public boolean hasFlights()
@@ -76,6 +77,7 @@ public abstract class FlightOptionalPackage extends VacationPackage
 	 * Retrieves the current itinerary for this travel package. Flights
 	 * are positioned in the returned array in the order in which they were
 	 * added to this FlightOptionalPackage.
+	 * 
 	 * @return The current itinerary array of Flight objects. null when no flights
 	 * have been added yet.
 	 */
@@ -118,6 +120,13 @@ public abstract class FlightOptionalPackage extends VacationPackage
 	 */
 	public String toString()
 	{
-		return String.format("$%.2f %s at the ");
+		if (this.hasFlights())
+		{
+			return String.format("%s (Flight Included)", super.toString());
+		}
+		else
+		{
+			return String.format("%s (Flight Not Included)", super.toString());
+		}
 	}
 }

@@ -6,7 +6,6 @@
 
 package triptypes;
 import java.util.Calendar;
-import java.text.DateFormat;
 
 /**
  * This class represents a cruise package within the travel agency.
@@ -71,21 +70,13 @@ public class Cruise extends FlightOptionalPackage
 	 */
 	private String ship = new String();
 	/**
-	 * DateFormat for the departure Calendar object.
-	 */
-	//private DateFormat departFormat = new DateFormat();
-	/**
-	 * DateFormat for the arrival Calendar object.
-	 */
-	//private DateFormat arriveFormat = new DateFormat();
-	/**
 	 * The date at which the cruise departs.
 	 */
-	private Calendar departure;
+	private Calendar departure = Calendar.getInstance();
 	/**
 	 * The date at which the cruise returns.
 	 */
-	private Calendar arrival;
+	private Calendar arrival = Calendar.getInstance();
 	/**
 	 * Double to hold the base price of the cruise.
 	 */
@@ -129,12 +120,6 @@ public class Cruise extends FlightOptionalPackage
 	public double getDepositAmount()
 	{
 		return this.getFlightCosts() + this.totalPrice * this.half;
-	}
-
-	@Override
-	public double getAmountDue() {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 
 	/**
@@ -303,8 +288,7 @@ public class Cruise extends FlightOptionalPackage
 	 */
 	public String toString()
 	{
-		return String.format("$%.2f %s...and Maybe Back (Flight Not Included)", this.totalPrice, 
-				super.getName()) + String.format("\n           Cruising from %s on %s", 
-				this.homePort, this.ship);
+		return String.format("%s...and Maybe Back (Flight Not Included)", super.toString())
+				+ String.format("\n           Cruising from %s on ");
 	}
 }

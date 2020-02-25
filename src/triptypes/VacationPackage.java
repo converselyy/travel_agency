@@ -22,10 +22,6 @@ public abstract class VacationPackage
 	 * The number of days included in this VacationPackage trip.
 	 */
 	private int days;
-	/**
-	 * Double representing the full price of the vacation package.
-	 */
-	private double price;
 	
 	/**
 	 * Initialises a VacationPackage with provided values.
@@ -96,6 +92,7 @@ public abstract class VacationPackage
 		return this.days;
 	}
 	
+	// 3 total abstract methods.
 	/**
 	 * This method provides the full price of a vacation package, which
 	 * is must be computed based on the specific kind of trip being booked.
@@ -110,21 +107,22 @@ public abstract class VacationPackage
 	 */
 	public abstract double getDepositAmount();
 	/**
-	 * This method provides the remaining amount due to the travel agent
-	 * for this trip less any deposit made up front.
-	 * @return The remaining balance to pay the travel agency in USD.
-	 */
-	public double getAmountDue()
-	{
-		return this.getPrice() - this.getDepositAmount();
-	}
-	/**
 	 * This method provides the subtotal for a trip related to lodging
 	 * expenses (ie, not including flights, meals, and incidentals).
 	 * Lodging rates are determined by specific package types.
 	 * @return The lodging subtotal in USD.
 	 */
 	public abstract double getLodgingCost();
+	
+	/**
+	 * This method provides the remaining amount due to the travel agent
+	 * for this trip less any deposit made upfront.
+	 * @return The remaining balance to pay the travel agency in USD.
+	 */
+	public double getAmountDue()
+	{
+		return this.getPrice() - this.getDepositAmount();
+	}
 	
 	/**
 	 * This method produces a String summary of a VacationPackage. Strings
@@ -139,11 +137,12 @@ public abstract class VacationPackage
 	 */
 	public String toString()
 	{
-		return String.format("");
+		return String.format("$	%d  %s", this.getPrice(), this.getName());
 	}
 	
 	/**
-	 * Provides a logical equality comparison for VacationPackages and any otherobject type.
+	 * Provides a logical equality comparison for VacationPackages and any other
+	 * object type.
 	 * @param other A reference to another object to be compared with this one.
 	 * @return True if and only if this VacationPackage shares the same
 	 * promotional name as one referred to by other. false when other is
