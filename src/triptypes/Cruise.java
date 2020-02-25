@@ -292,12 +292,12 @@ public class Cruise extends FlightOptionalPackage
 		if (this.getNumExcursions() == 0)
 		{
 			temp = String.format("%s\n           Cruising from %s on the %s",
-					super.toString(), this.homePort, this.getVesselName());
+					super.toString(), this.getHomePort(), this.getVesselName());
 		}
 		else if (this.getNumExcursions() > 0)
 		{
 			temp = String.format("%s\n           Cruising from %s on the %s (includes %d"
-					+ "excursions)", super.toString(), this.homePort, this.getVesselName(),
+					+ "excursions)", super.toString(), this.getHomePort(), this.getVesselName(),
 					this.getNumExcursions());
 		}
 		return temp;
