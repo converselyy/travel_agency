@@ -92,7 +92,7 @@ public class CruiseTest
 	}
 	
 	@Test
-	public void testAddExursionNegitive()
+	public void testLodging()
 	{
 		date1.set(2019, 4, 1, 10, 0);
 		date2.set(2019, 4, 4, 14, 0);
@@ -101,5 +101,16 @@ public class CruiseTest
 		c.setCabinType(CabinType.BALCONY);
 		assertEquals(CabinType.BALCONY, c.getCabinType());
 		assertEquals(200 * 3, c.getLodgingCost(), DOUBLE_TOLERANCE);
+	}
+	
+	@Test
+	public void testToString()
+	{
+		date1.set(2019, 4, 1, 10, 0);
+		date2.set(2019, 4, 4, 14, 0);
+		Cruise c = new Cruise("Bermuda Triangle and Back...Maybe", 4, "Knight", "Miami", date1, date2, 200);
+
+		assertEquals("$200.00 Bermuda Triangle and Back...Maybe (Flight Not Included)"
+				+ "/n Cruising from Mimai on the Knight", c.toString());
 	}
 }

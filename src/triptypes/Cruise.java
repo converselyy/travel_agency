@@ -289,6 +289,6 @@ public class Cruise extends FlightOptionalPackage
 	public String toString()
 	{
 		return String.format("%s...and Maybe Back (Flight Not Included)", super.toString())
-				+ String.format("\n           Cruising from %s on ");
+				+ String.format("\n           Cruising from %s on ", this.getVesselName());
 	}
 }

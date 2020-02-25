@@ -95,12 +95,12 @@ public abstract class VacationPackage
 	// 3 total abstract methods.
 	/**
 	 * This method provides the full price of a vacation package, which
-	 * is must be computed based on the specific kind of trip beingbooked.
+	 * is must be computed based on the specific kind of trip being booked.
 	 * @return The price of a vacation package in USD.
 	 */
 	public abstract double getPrice();
 	/**
-	 * This method provides the required upfront deposit amount for a
+	 * This method provides the required up front deposit amount for a
 	 * given vacation. This must be computed based on rules determined
 	 * by specific package types, per travel agency policies.
 	 * @return The deposit amount required in USD.
@@ -137,11 +137,12 @@ public abstract class VacationPackage
 	 */
 	public String toString()
 	{
-		return String.format("$	%d  %s", this.getPrice(), this.getName());
+		return String.format("$	%.2f  %s", this.getPrice(), this.getName());
 	}
 	
 	/**
-	 * Provides a logical equality comparison for VacationPackages and any otherobject type.
+	 * Provides a logical equality comparison for VacationPackages and any other
+	 * object type.
 	 * @param other A reference to another object to be compared with this one.
 	 * @return True if and only if this VacationPackage shares the same
 	 * promotional name as one referred to by other. false when other is
