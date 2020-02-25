@@ -110,7 +110,6 @@ public class CruiseTest
 		date2.set(2019, 4, 4, 14, 0);
 		Cruise c = new Cruise("Bermuda Triangle and Back...Maybe", 4, "Knight", "Miami", date1, date2, 200);
 
-		c.addExcursion("Water slide", -0.5);
 		assertEquals("$200.00 Bermuda Triangle and Back...Maybe (Flight Not Included)"
 				+ "/n Cruising from Mimai on the Knight", c.toString());
 	}
