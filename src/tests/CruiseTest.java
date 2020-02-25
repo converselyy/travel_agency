@@ -110,6 +110,6 @@ public class CruiseTest
 		date2.set(2019, 4, 4, 14, 0);
 		Cruise c = new Cruise("Hi", 4, "Knight", "Miami", date1, date2, 200);
 
-		assertEquals("$200.00 Hi (Flight Not Included)\n           Cruising from Mimai on the Knight", c.toString());
+		assertEquals("$200.00  Hi (Flight Not Included)\n           Cruising from Miami on the Knight", c.toString());
 	}
 }

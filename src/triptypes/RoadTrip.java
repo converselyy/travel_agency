@@ -23,10 +23,6 @@ public class RoadTrip extends VacationPackage
 	 */
 	private final double basePrice = 35.20;
 	/**
-	 * The total fuel price in USD.
-	 */
-	private double fuelCost;
-	/**
 	 * The total miles to be travelled.
 	 */
 	private int miles;
@@ -70,9 +66,9 @@ public class RoadTrip extends VacationPackage
 	{
 		super(name, numDays);
 		this.stops = stopsIn;
-		this.fuelCost = fuelCostIn;
+		this.pricePerGallon = fuelCostIn;
 		this.miles = milesIn;
-		this.maxPeople = maxPersons;
+		this.numPeople = maxPersons;
 		this.stars = hotelStars;
 	}
 
@@ -83,7 +79,7 @@ public class RoadTrip extends VacationPackage
 	 */
 	public double getPrice()
 	{
-		return this.fuelCost; // add on the rental car and lodging costs
+		return this.getEstimatedFuelCost() + this.getCarCost() + this.getLodgingCost(); 
 	}
 
 	/**
@@ -95,6 +91,16 @@ public class RoadTrip extends VacationPackage
 	public double getDepositAmount()
 	{
 		return this.getLodgingCost() + this.getCarCost();
+	}
+	/**
+	 * All RoadTrips must be fully paid in advance, with the exception of fuel costs. Fuel 
+	 * costs are paid to the gas station, and not the travel agent. Thus, the balance due 
+	 * on RoadTrips is always 0.
+	 * @return The remaining balance to pay the travel agency.
+	 */
+	public double getAmountDue()
+	{
+		return 0;
 	}
 
 	/**
@@ -110,7 +116,7 @@ public class RoadTrip extends VacationPackage
 	 */
 	public double getLodgingCost()
 	{
-		return this.basePrice * this.stars * super.getNumDays() * Math.ceil(this.maxPeople / 2);
+		return this.basePrice * this.stars * super.getNumDays() * Math.ceil(this.numPeople / 2);
 	}
 	
 	/**
@@ -180,7 +186,7 @@ public class RoadTrip extends VacationPackage
 	{
 		if (maxPeopleIn > 0)
 		{
-			this.maxPeople = maxPeopleIn;
+			this.numPeople = maxPeopleIn;
 		}
 	}
 	
@@ -260,7 +266,7 @@ public class RoadTrip extends VacationPackage
 		{
 			temp = 45.0;
 		}
-		return temp * (double)this.miles;
+		return ((double) this.miles / temp) * this.pricePerGallon;
 	}
 	
 	/**
@@ -276,7 +282,14 @@ public class RoadTrip extends VacationPackage
 		
 		for (int i = 0; i < this.stops.length - 1; i++)
 		{
-			temp += String.format("%s, ");
+			if (i == this.stops.length - 1)
+			{
+				temp += this.stops[i];
+			}
+			else
+			{
+				temp += String.format("%s, ", this.stops[i]);
+			}
 		}
 		temp += this.stops[this.stops.length - 1];
 		return temp;
@@ -296,7 +309,7 @@ public class RoadTrip extends VacationPackage
 	 */
 	public String toString()
 	{
-		return String.format("$%.2f	%s at %s\n", super.getName())
+		return String.format("%s\n", super.toString())
 				+ String.format("           A road trip with stops at %s", this.getStops());
 	}
 }
