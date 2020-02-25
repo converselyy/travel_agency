@@ -288,17 +288,31 @@ public class Cruise extends FlightOptionalPackage
 	 */
 	public String toString()
 	{
-		if (this.excursions.length > 0)
+		String temp = new String();
+		if (this.getNumExcursions() == 0 && !this.hasFlights())
 		{
-			return String.format("%s...and Maybe Back (Flight Not Included)", super.toString())
+			temp = String.format("%s (Flight Not Included)", super.toString())
 					+ String.format("\n           Cruising from %s on %s", this.homePort,
 							this.getVesselName());
 		}
-		else
+		else if (this.getNumExcursions() > 0 && !this.hasFlights())
 		{
-			return String.format("%s...and Maybe Back (Flight Not Included)", super.toString())
+			temp = String.format("%s (Flight Not Included)", super.toString())
 					+ String.format("\n           Cruising from %s on %s (includes %d excursions)",
 							this.homePort, this.getVesselName(), this.getNumExcursions());
 		}
+		if (this.getNumExcursions() == 0 && this.hasFlights())
+		{
+			temp = String.format("%s (Flight Included)", super.toString())
+					+ String.format("\n           Cruising from %s on %s", this.homePort,
+							this.getVesselName());
+		}
+		else if (this.getNumExcursions() > 0 && this.hasFlights())
+		{
+			temp = String.format("%s (Flight Included)", super.toString())
+					+ String.format("\n           Cruising from %s on %s (includes %d excursions)",
+							this.homePort, this.getVesselName(), this.getNumExcursions());
+		}
+		return temp;
 	}
 }
