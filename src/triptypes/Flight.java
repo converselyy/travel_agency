@@ -11,7 +11,7 @@ import java.text.SimpleDateFormat;
 /**
  * This class represents a single flight within the travel agency system.
  * 
- * @author bcline
+ * @author bcline, ntyler
  */
 public class Flight
 {

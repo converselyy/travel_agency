@@ -16,7 +16,7 @@ import triptypes.VacationPackage;
  * within the trip search user interface. Up to 25 VacationPackages can be stored
  * in a single collection.
  * 
- * @author bcline
+ * @author bcline, ntyler
  */
 public class VacationPackageCollection
 {

@@ -13,7 +13,7 @@ package triptypes;
  * packages are billed using a flat fee, regardless of the number of
  * included amenities.
  * 
- * @author bcline
+ * @author bcline, ntyler
  */
 public class AllInclusiveResort extends FlightOptionalPackage
 {

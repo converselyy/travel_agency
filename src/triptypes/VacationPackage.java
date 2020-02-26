@@ -10,7 +10,7 @@ package triptypes;
  * This class serves as the base class of all types of vacation packages within the
  * travel agency program.
  * 
- * @author bcline
+ * @author bcline, ntyler
  */
 public abstract class VacationPackage
 {

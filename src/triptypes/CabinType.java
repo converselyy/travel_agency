@@ -8,7 +8,7 @@ package triptypes;
 
 /**
  * This enum presents the four cabin types on standard cruise ships.
- * @author bcline
+ * @author bcline, ntyler
  *
  */
 public enum CabinType

@@ -11,7 +11,7 @@ package travelgui;
  * This class is a small stub class responsible for starting up the GUI
  * provided by another class which is hidden from view in the project.
  * 
- * @author bdorn
+ * @author bdorn, ntyler
  */
 public class TravelAgencyApp
 {

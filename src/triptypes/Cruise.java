@@ -13,7 +13,7 @@ import java.util.Calendar;
  * departure and arrival times. It allows for optional off-ship
  * excursion packages to be added to a trip for an additional price.
  * 
- * @author bcline
+ * @author bcline, ntyler
  */
 public class Cruise extends FlightOptionalPackage
 {
