@@ -6,12 +6,13 @@
 // "not" external resources?
 
 package travelgui;
+import travelgui.TripSelectionView;
 
 /**
  * This class is a small stub class responsible for starting up the GUI
  * provided by another class which is hidden from view in the project.
  * 
- * @author bdorn, ntyler
+ * @author bdorn, bcline, ntyler
  */
 public class TravelAgencyApp
 {
