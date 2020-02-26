@@ -199,77 +199,78 @@ public class VacationPackageCollection
 	 */
 	public void sortCollection(boolean byPrice)
 	{
-		if (byPrice)
-		{
-			this.priceSort();
-		}
-		else
-		{
-			this.lexiSort();
-		}
+//		if (byPrice)
+//		{
+//			this.priceSort();
+//		}
+//		else
+//		{
+//			this.lexiSort();
+//		}
+		
 	}
 	
 	/**
 	 * Helper method for sorting by price.
 	 */
-	private void priceSort()
-	{
-		// "Can't instantiate type VacationPackage sooooooo we're using an array!
-		VacationPackage[] temp = new VacationPackage[1];
-		int smallestPos;
-		
-		for (int i = 0; i < this.collection.length - 1; i++) 
-		{
-			smallestPos = i;
-			for (int j = i + 1; j < this.collection.length; j++)
-			{
-				if (this.collection[j].getPrice() < this.collection[smallestPos].getPrice())
-				{
-					smallestPos = j;
-				}				
-			}				
-			
-			// swap (I think)
-			temp[1].setName(this.collection[i].getName());
-			temp[1].setLength(this.collection[i].getNumDays());
-			
-			this.collection[i].setName(this.collection[smallestPos].getName());
-			this.collection[i].setLength(this.collection[smallestPos].getNumDays());
-			
-			this.collection[smallestPos].setName(temp[1].getName());
-			this.collection[smallestPos].setLength(temp[1].getNumDays());
-		}
-	}
-	
-	/**
-	 * Helper method for sorting lexicographically.
-	 */
-	private void lexiSort()
-	{
-		VacationPackage[] temp = new VacationPackage[1];
-		int smallestPos;
-		
-		for (int i = 0; i < this.collection.length - 1; i++) 
-		{
-			smallestPos = i;
-			for (int j = i + 1; j < this.collection.length; j++)
-			{
-				if (this.collection[j].getName().charAt(0) 
-						< this.collection[smallestPos].getName().charAt(0))
-				{
-					smallestPos = j;
-				}				
-			}				
-			
-			// swap (I think)
-			temp[1].setName(this.collection[i].getName());
-			temp[1].setLength(this.collection[i].getNumDays());
-			
-			this.collection[i].setName(this.collection[smallestPos].getName());
-			this.collection[i].setLength(this.collection[smallestPos].getNumDays());
-			
-			this.collection[smallestPos].setName(temp[1].getName());
-			this.collection[smallestPos].setLength(temp[1].getNumDays());
-		}
-	}
+//	private void priceSort()
+//	{
+//		// "Can't instantiate type VacationPackage sooooooo we're using an array!
+//		VacationPackage[] temp = new VacationPackage[1];
+//		int smallestPos;
+//		
+//		for (int i = 0; i < this.collection.length - 1; i++) 
+//		{
+//			smallestPos = i;
+//			for (int j = i + 1; j < this.collection.length; j++)
+//			{
+//				if (this.collection[j].getPrice() < this.collection[smallestPos].getPrice())
+//				{
+//					smallestPos = j;
+//				}				
+//			}				
+//			
+//			// swap (I think)
+//			temp[1].setName(this.collection[i].getName());
+//			temp[1].setLength(this.collection[i].getNumDays());
+//			
+//			this.collection[i].setName(this.collection[smallestPos].getName());
+//			this.collection[i].setLength(this.collection[smallestPos].getNumDays());
+//			
+//			this.collection[smallestPos].setName(temp[1].getName());
+//			this.collection[smallestPos].setLength(temp[1].getNumDays());
+//		}
+//	}
+//	
+//	/**
+//	 * Helper method for sorting lexicographically.
+//	 */
+//	private void lexiSort()
+//	{
+//		VacationPackage[] temp = new VacationPackage[1];
+//		int smallestPos;
+//		
+//		for (int i = 0; i < this.collection.length - 1; i++) 
+//		{
+//			smallestPos = i;
+//			for (int j = i + 1; j < this.collection.length; j++)
+//			{
+//				if (this.collection[j].getName().charAt(0) 
+//						< this.collection[smallestPos].getName().charAt(0))
+//				{
+//					smallestPos = j;
+//				}				
+//			}				
+//			
+//			// swap (I think)
+//			temp[1].setName(this.collection[i].getName());
+//			temp[1].setLength(this.collection[i].getNumDays());
+//			
+//			this.collection[i].setName(this.collection[smallestPos].getName());
+//			this.collection[i].setLength(this.collection[smallestPos].getNumDays());
+//			
+//			this.collection[smallestPos].setName(temp[1].getName());
+//			this.collection[smallestPos].setLength(temp[1].getNumDays());
+//		}
+//	}
 }
