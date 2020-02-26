@@ -69,7 +69,18 @@ public class RoadTrip extends VacationPackage
 		this.pricePerGallon = fuelCostIn;
 		this.miles = milesIn;
 		this.numPeople = maxPersons;
-		this.stars = hotelStars;
+		if (hotelStars < 6)
+		{
+			this.stars = 5;
+		}
+		else if (hotelStars < 1)
+		{
+			this.stars = 1;
+		}
+		else
+		{
+			this.stars = hotelStars;
+		}
 		
 		// uhh, numPeople = maxPersons??
 		// now we're not using maxPeople
