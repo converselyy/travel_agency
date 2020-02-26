@@ -70,6 +70,9 @@ public class RoadTrip extends VacationPackage
 		this.miles = milesIn;
 		this.numPeople = maxPersons;
 		this.stars = hotelStars;
+		
+		// uhh, numPeople = maxPersons??
+		// now we're not using maxPeople
 	}
 
 	/**
