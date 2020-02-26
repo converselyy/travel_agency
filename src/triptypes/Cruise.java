@@ -1,7 +1,7 @@
 // COURSE: CSCI1620
 // TERM: Spring 2020
 //
-// NAME: Brandon Cline
+// NAME: Brandon Cline, Nate Tyler
 // RESOURCES: Checked the Calendar and DateFormat docs for formatting a Calendar date.
 
 package triptypes;

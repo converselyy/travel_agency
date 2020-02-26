@@ -1,7 +1,7 @@
 // COURSE: CSCI1620
 // TERM: Spring 2020
 //
-// NAME: Brandon Cline
+// NAME: Brandon Cline, Nate Tyler
 // RESOURCES: No external resources were referenced or used.
 
 /**
