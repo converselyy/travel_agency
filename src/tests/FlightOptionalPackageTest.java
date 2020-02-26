@@ -17,7 +17,7 @@ import triptypes.Cruise;
 import triptypes.Flight;  
 
 /**
- * Tests the AllInclusiveResort class.
+ * Tests the FlightOptionalPackage class.
  * @author ntyler, bcline
  *
  */
@@ -45,6 +45,18 @@ public class FlightOptionalPackageTest
 		c.addFlightLeg(new Flight("BB", 9473, "DAL", "MIM", date1, date2, 100.00) );
 		
 		assertEquals(200, c.getFlightCosts(), DOUBLE_TOLERANCE);
+		assertEquals(true, c.hasFlights());
 		
+	}
+	
+	@Test
+	public void testToString() 
+	{
+		Cruise c = new Cruise("Long", 10, "Knight", "Miami", date1, date2, 200);
+		c.addFlightLeg(new Flight("AA", 8473, "OMA", "DAL", date1, date2, 100.00) );
+		c.addFlightLeg(new Flight("BB", 9473, "DAL", "MIM", date1, date2, 100.00) );
+		
+		assertEquals("$400.00  Long (Flight Included)\n           Cruising from Miami on the Knight",
+				c.toString());
 	}
 }
