@@ -7,6 +7,7 @@
 package travelgui;
 import triptypes.AllInclusiveResort;
 import triptypes.Cruise;
+import triptypes.FlightOptionalPackage;
 import triptypes.RoadTrip;
 import triptypes.VacationPackage;
 
@@ -124,6 +125,104 @@ public class VacationPackageCollection
 			return temp;
 		default:
 			return temp;
+		}
+	}
+	
+	/**
+	 * Produces a summary of flight information inside a VacationPackage
+	 * for detail display elsewhere. In addition to properly extracting flight
+	 * details when the given index corresponds to a FlightOptionalPackage with one or
+	 * more flight legs, this method will also dectect various error conditions. In
+	 * erroneous situations, one of the following strings will be produced:
+	 * 
+	 * ERROR: Index is out of range!
+	 * ERROR: No flights are allowed for this type of trip!
+	 * ERROR: The selected trip has no flight information.
+	 * 
+	 * Each of these errors corresponds to invalid range input, packages for which flightscannot be added in the first place, and packages which potentially could (but do not yet)have flight data.
+	 * @param i The index position in the collection from which to extract flightinformation.
+	 * @return The formatted flight details, with one Flight per line and each
+	 * Flight displayed as detailed in Flight.toString.
+	 */
+	public String getFlightDetails(int index)
+	{
+		String temp = new String();
+		
+		if (index > this.MAX_PKGS || index < 0)
+		{
+			temp = "ERROR: Index is out of range!";
+		}
+		else if (!(this.collection[index] instanceof FlightOptionalPackage))
+		{
+			temp = "ERROR: No flights are allowed for this type of trip!";
+		}
+		else
+		{
+			if (((FlightOptionalPackage)this.collection[index]).hasFlights())
+			{
+				temp = this.collection[index].toString();
+			}
+			else
+			{
+				temp = "ERROR: The selected trip has no flight information.";
+			}
+		}
+		
+		return temp;
+	}
+	
+	/**
+	 * Provides 0-based indexed access to the VacationPackageCollection.
+	 * @param index The index position whose VacationPackage should be returned.
+	 * @return The selected VacationPackage when index is valid.
+	 * The method will return null otherwise.
+	 */
+	public VacationPackage getItemAt(int index)
+	{
+		if (index < this.MAX_PKGS && index > 0)
+		{
+			return this.collection[index];
+		}
+		return null;
+	}
+	
+	// full disclosure, this is the sketchiest method I've ever written
+	/**
+	 * Produces a stable sort of the contents of this VacationPackageCollection,
+	 * with the sort order determined by an externally specified criteria. When
+	 * byPrice is true, the method will sort all available packages in ascending
+	 * order by total package price. When false, the method sorts packages in
+	 * standard lexicographically ascending order by package name
+	 * (see, https://en.wikipedia.org/wiki/Lexicographical_order).
+	 * 
+	 * @param byPrice A flag which sets the sort criteria as described above.
+	 */
+	public void sortCollection(boolean byPrice)
+	{
+		// "Can't instantiate type VacationPackage sooooooo we're using an array!
+		VacationPackage[] temp = new VacationPackage[1];
+		int smallestPos;
+		
+		for (int i = 0; i < this.collection.length - 1; i++) 
+		{
+			smallestPos = i;
+			for (int j = i + 1; j < this.collection.length; j++)
+			{
+				if (this.collection[j].getPrice() < this.collection[smallestPos].getPrice())
+				{
+					smallestPos = j;
+				}				
+			}				
+			
+			// swap (I think)
+			temp[1].setName(this.collection[i].getName());
+			temp[1].setLength(this.collection[i].getNumDays());
+			
+			this.collection[i].setName(this.collection[smallestPos].getName());
+			this.collection[i].setLength(this.collection[smallestPos].getNumDays());
+			
+			this.collection[smallestPos].setName(temp[1].getName());
+			this.collection[smallestPos].setLength(temp[1].getNumDays());
 		}
 	}
 }
