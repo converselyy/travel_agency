@@ -10,6 +10,7 @@ import triptypes.Cruise;
 import triptypes.FlightOptionalPackage;
 import triptypes.RoadTrip;
 import triptypes.VacationPackage;
+import triptypes.Flight;
 
 /**
  * This class serves as a collection to store, filter, and explore VacationPackages
@@ -160,7 +161,14 @@ public class VacationPackageCollection
 		{
 			if (((FlightOptionalPackage)this.collection[index]).hasFlights())
 			{
-				temp = this.collection[index].toString();
+				Flight[] f = ((FlightOptionalPackage) this.collection[index]).getFlightItinerary();
+				for (int i = 0; i < f.length; i++)
+				{	
+					if (f[i] != null)
+					{
+						temp += f[i].toString() + "\n";
+					}
+				}
 			}
 			else
 			{
