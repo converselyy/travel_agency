@@ -11,7 +11,6 @@ import static org.junit.Assert.*;
 import java.util.Calendar;
 import org.junit.Test;
 import travelgui.VacationPackageCollection;
-import triptypes.CabinType;
 import triptypes.Cruise;
 
 /**
