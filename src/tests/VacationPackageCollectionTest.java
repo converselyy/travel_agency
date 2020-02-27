@@ -97,6 +97,24 @@ public class VacationPackageCollectionTest
 		assertEquals("ERROR: Index is out of range!", VP.getFlightDetails(-1));
 		assertEquals("ERROR: No flights are allowed for this type of trip!", VP.getFlightDetails(1));
 		assertEquals("ERROR: The selected trip has no flight information.", VP.getFlightDetails(2));
-		assertEquals("ERROR: Index is out of range!", VP.getFlightDetails(-1));
+		assertEquals(f.toString() + "\n", VP.getFlightDetails(0));
+	}
+	
+	@Test
+	public void testGetItemAt()
+	{
+		String[] stops = new String[] {"Omaha", "Denver"};
+		Cruise c = new Cruise("Floating Germ Palace", 4, "Knight", "Miami, FL", date1, date2, 199.5);
+		RoadTrip r = new RoadTrip("Long", 14, stops, 1, 200, 4, 5);
+		AllInclusiveResort a = new AllInclusiveResort("Spring Break on the Gulf", 14, 
+				"Hello There", 4, 200, new String[] {"Surfing", "Skidiving"});
+		
+		VacationPackageCollection VP = new VacationPackageCollection();
+		VP.addVacation(r);
+		VP.addVacation(c);
+		VP.addVacation(a);
+		
+		assertEquals(c, VP.getItemAt(1));
+		assertEquals(null, VP.getItemAt(-2));
 	}
 }

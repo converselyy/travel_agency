@@ -187,7 +187,7 @@ public class VacationPackageCollection
 	 */
 	public VacationPackage getItemAt(int index)
 	{
-		if (index < this.MAX_PKGS && index > 0)
+		if (index < this.numTrips && index > 0)
 		{
 			return this.collection[index];
 		}
