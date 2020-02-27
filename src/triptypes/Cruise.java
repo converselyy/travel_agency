@@ -160,7 +160,8 @@ public class Cruise extends FlightOptionalPackage
 	 */
 	public double getPrice()
 	{
-		return this.totalPrice + this.getFlightCosts() + this.excursionSubTotal;
+		return this.totalPrice + this.getFlightCosts() + this.excursionSubTotal
+				+ this.getLodgingCost();
 	}
 	
 	/**
