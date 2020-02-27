@@ -2,7 +2,7 @@
 // TERM: Spring 2020
 //
 // NAME: Brandon Cline, Nate Tyler
-// RESOURCES: No external resources were referenced or used.
+// RESOURCES: Referenced Stack Overflow for the toString() price formatting.
 
 package triptypes;
 
@@ -137,7 +137,7 @@ public abstract class VacationPackage
 	 */
 	public String toString()
 	{
-		return String.format("$ %7.2f  %s", this.getPrice(), this.getName());
+		return String.format("$%8.2f  %s", this.getPrice(), this.getName());
 	}
 	
 	/**

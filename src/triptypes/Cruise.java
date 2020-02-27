@@ -113,7 +113,7 @@ public class Cruise extends FlightOptionalPackage
 	 * Cruise packages require that all applicable flight costs and 50%
 	 * of expected lodging costs are paid at the time of booking.
 	 * Optional excursion costs are not included in the deposit amount,
-	 * but must be paid prior to departure.\
+	 * but must be paid prior to departure.
 	 * 
 	 * @return The deposit amount required in USD.
 	 */
